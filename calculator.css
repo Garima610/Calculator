@@ -27,7 +27,7 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-#box,#boxx{
+.box,.boxx{
   border: none;
   width: 65px;
   height: 65px;
@@ -36,25 +36,45 @@
   font-weight: bold;
   font-size: x-large;
 }
-#boxx{
+.boxx{
   background-color:  rgb(148, 109, 62);
 }
 
-#box:hover{
+.box:hover{
   background-color:  rgb(207, 237, 237);
 }
 
-#boxx:hover{
+.boxx:hover{
   background-color:orange;
 }
 
-#display{
+#display1{
   width: 290px;
-  height: 60px;
+  height: 30px;
   border-radius: 8px;
   border: none;
   background-color: rgb(224, 220, 220);
+  text-align: left;
+  border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+    padding: 0;
 }
+#display2{
+    width: 290px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(224, 220, 220);
+  text-align: right;
+   border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+      margin-top: -16px;
+      /* padding: 0; */
+}
+
 
 @media (max-width: 400px) {
     .container {
