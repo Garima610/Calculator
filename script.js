@@ -95,30 +95,42 @@ mod.addEventListener("click",()=>{
   addInput("%");
 });
 
-function square(){
-   if (displaystring === "") return;
-  let result = Math.sqrt(parseFloat(displaystring));
-    displaystring = String(result);
-}
 
 sqrt.addEventListener("click",()=>{
   addInput("√");
-
+equals.removeEventListener("click",calculation);
+equals.addEventListener("click",square);
 });
 
-equals.addEventListener("click",()=>{
+function square(){
+  cssMaintain(true);
+  //  if (displaystring === "") return;
+  let displayArray= displaystring.split("");
+  // console.log(displayArray)
+  displayArray.shift();
+  let actualNumberString= displayArray.join("");
   
-  if(displaystring.length>0){
+  let actualNumber = Math.sqrt(parseFloat(actualNumberString));
+    displaystring = String(actualNumber);
+    output2.value= displaystring;
+    equals.removeEventListener("click",square);
+    equals.addEventListener("click",calculation);
+}
+
+equals.addEventListener("click",calculation);
+
+function calculation(){
+    if(displaystring.length>0){
     let result = eval(displaystring);
     output2.value = result;
     displaystring= result;
     cssMaintain(true);
   }
  
-});
+}
 
 clear.addEventListener("click",()=>{
-  displaystring= " ";
+  displaystring= "";
   output1.value= displaystring;
   output2.value= displaystring;
 });
@@ -132,8 +144,8 @@ del.addEventListener("click",()=>{
 
 function cssMaintain(isResult){
   if(isResult){
-    output.style.textAlign= "right";
+    output2.style.textAlign= "right";
   } else{
-    output.style.textAlign= "left"
+    output1.style.textAlign= "left"
   }
 }
